@@ -1,0 +1,82 @@
+{
+  "name": "Webhook Workflow",
+  "form": "8e487f3e-a6d4-4217-aa92-90fbe0dc607e",
+  "blocks": [
+    {
+      "id": "9815b2e8-72e6-4aa1-b2ee-43bcc2048e7f",
+      "label": "Some random logic",
+      "presentation": "{\"w\":60,\"x\":170,\"h\":60,\"y\":147}",
+      "step": "51bb35bf-8eb3-45cc-800e-14c50a375d87",
+      "stepType": "SCRIPT_STEP"
+    },
+    {
+      "id": "0ae53834-9c9a-4d72-82be-0ec21fe39109",
+      "label": "Switch",
+      "presentation": "{\"w\":60,\"x\":340,\"h\":60,\"y\":0}",
+      "stepType": "SWITCH",
+      "inputMappings": [
+        {
+          "inputPort": "input",
+          "mapping": "${9815b2e8-72e6-4aa1-b2ee-43bcc2048e7f.output1}"
+        }
+      ],
+      "switchCases": [
+        {
+          "caseId": "678f6739-3030-4fee-befb-57d150952eab",
+          "caseValue": "true"
+        }
+      ]
+    },
+    {
+      "id": "f12a1f0a-0556-4074-b988-129a879fa5ae",
+      "label": "Webhook - My Default Webhook Listener",
+      "presentation": "{\"w\":60,\"x\":0,\"h\":60,\"y\":147}",
+      "step": "279d15fc-1ba8-4e09-bc8b-c521c5a1084f",
+      "stepType": "INTEGRATION"
+    },
+    {
+      "id": "424a9753-2b14-4941-9f0a-fc2592d979b0",
+      "label": "xMatters Create Event - Webhook",
+      "presentation": "{\"w\":60,\"x\":510,\"h\":60,\"y\":147}",
+      "step": "8e487f3e-a6d4-4217-aa92-90fbe0dc607e",
+      "stepType": "CREATE_EVENT",
+      "inputMappings": [
+        {
+          "inputPort": "input",
+          "mapping": "tdepuy",
+          "sectionItemKey": "recipients"
+        },
+        {
+          "inputPort": "input",
+          "mapping": "${f12a1f0a-0556-4074-b988-129a879fa5ae.message}",
+          "sectionItemKey": "31b509ae-eef5-43ef-91c2-43d979771f9f"
+        },
+        {
+          "inputPort": "input",
+          "mapping": "${f12a1f0a-0556-4074-b988-129a879fa5ae.subject}",
+          "sectionItemKey": "6a48554e-abc8-4dc4-853f-22200a1f107e"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "fromBlock": "9815b2e8-72e6-4aa1-b2ee-43bcc2048e7f",
+      "fromPort": "output",
+      "toBlock": "0ae53834-9c9a-4d72-82be-0ec21fe39109",
+      "toPort": "input"
+    },
+    {
+      "fromBlock": "f12a1f0a-0556-4074-b988-129a879fa5ae",
+      "fromPort": "output",
+      "toBlock": "9815b2e8-72e6-4aa1-b2ee-43bcc2048e7f",
+      "toPort": "input"
+    },
+    {
+      "fromBlock": "0ae53834-9c9a-4d72-82be-0ec21fe39109",
+      "fromPort": "output",
+      "toBlock": "424a9753-2b14-4941-9f0a-fc2592d979b0",
+      "toPort": "input"
+    }
+  ]
+}

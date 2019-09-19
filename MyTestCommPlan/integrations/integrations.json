@@ -1,0 +1,49 @@
+{
+  "integrations": [
+    {
+      "id": "574b27ba-51d0-42f2-ba59-9b47ca3de5b8",
+      "name": "Webhook",
+      "action": "CREATE_EVENT_SIMPLE",
+      "type": "INBOUND_WEBHOOK",
+      "deployed": true,
+      "form": "8e487f3e-a6d4-4217-aa92-90fbe0dc607e",
+      "script": "var plan_id = 'ba77e224-7c18-4727-940c-76bbb4762332', form_id = '82d3ecfa-222d-48e8-9070-84be2055e2bb';\nvar xm_ver = 1;\n\nvar endpointpath = '/api/xm/' + xm_ver + '/plans/' + plan_id + '/forms/' + form_id + '/triggers';\n\nvar req = http.request({\n    method: 'POST',\n    endpoint: 'xMatters',\n    path: endpointpath,\n    headers: {\n        'Content-Type': 'application/json',\n    }\n});\n\n// Add requestId to payload\nvar payload = JSON.parse(request.body);\nif (!payload) {\n    payload = {};\n}\npayload.requestId = request.requestId;\npayload.integrationUuid = request.integrationUuid;\n\nvar response = req.write(payload);\n\n// If not 2xx response, throw exception to fail the integration\nif (response.statusCode >= 300) {\n    throw \"Failed to make call to xMatters endpoint. Path: \" + endpointpath + \". Server responded with status \" + response.statusCode;\n}\n\n",
+      "environment": "HOSTED",
+      "authType": "URL",
+      "createdBy": "IB"
+    },
+    {
+      "id": "279d15fc-1ba8-4e09-bc8b-c521c5a1084f",
+      "name": "Webhook - My Default Webhook Listener",
+      "action": "RUN_SCRIPT",
+      "type": "INBOUND_WEBHOOK",
+      "deployed": true,
+      "form": "8e487f3e-a6d4-4217-aa92-90fbe0dc607e",
+      "environment": "HOSTED",
+      "authType": "URL",
+      "createdBy": "FLOW",
+      "integrationScriptStepUuid": "cbd24057-7491-4157-a596-3b6493347a5f"
+    }
+  ],
+  "endpoints": [
+    {
+      "name": "Device delivery updates endpoint",
+      "baseUrl": "",
+      "type": "EXTERNAL",
+      "authentication": "NO_AUTH"
+    },
+    {
+      "name": "Event status updates endpoint",
+      "baseUrl": "",
+      "type": "EXTERNAL",
+      "authentication": "NO_AUTH"
+    },
+    {
+      "name": "Notification responses endpoint",
+      "baseUrl": "https://someplace.nowhere",
+      "type": "EXTERNAL",
+      "authentication": "NO_AUTH"
+    }
+  ],
+  "constants": []
+}

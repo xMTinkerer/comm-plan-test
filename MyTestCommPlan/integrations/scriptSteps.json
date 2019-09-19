@@ -1,0 +1,43 @@
+[
+  {
+    "id": "cbd24057-7491-4157-a596-3b6493347a5f",
+    "name": "My Default Webhook Listener",
+    "description": "",
+    "icon": "/static/images/script_steps/http-trigger.png",
+    "script": "// this is my script here...\n\nvar payload = JSON.parse( request.body );\n\noutput['subject'] = payload.subject;\noutput['message'] = payload.message;\n\n\n",
+    "allowedEnvironment": "HOSTED",
+    "accessibleByAll": "NotShared",
+    "scriptStepType": "CUSTOM_HTTP",
+    "inputs": [],
+    "outputs": [
+      {
+        "id": "2efc9d43-b2e5-4760-b464-1e45a3a64f3f",
+        "name": "subject",
+        "position": 0
+      },
+      {
+        "id": "8a98365c-438c-4bcd-b101-db967b122422",
+        "name": "message",
+        "position": 1
+      }
+    ]
+  },
+  {
+    "id": "51bb35bf-8eb3-45cc-800e-14c50a375d87",
+    "name": "Some random logic",
+    "description": "Do stuff here.",
+    "icon": "/static/images/script_steps/default-brackets.png",
+    "script": "output['outpu1'] = 'Goldi Locks was here';",
+    "allowedEnvironment": "HOSTED",
+    "accessibleByAll": "NotShared",
+    "scriptStepType": "USER",
+    "inputs": [],
+    "outputs": [
+      {
+        "id": "c58e3c1e-b129-4a1f-a95c-9f13cb25f0c7",
+        "name": "output1",
+        "position": 0
+      }
+    ]
+  }
+]

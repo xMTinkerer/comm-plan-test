@@ -1,0 +1,28 @@
+[
+  {
+    "baseType": 3,
+    "name": "message",
+    "defaultValue": "",
+    "description": "",
+    "helpText": "",
+    "isSystem": false,
+    "minLength": 0,
+    "maxLength": 2000,
+    "validationRegex": "",
+    "isValidate": false,
+    "uuid": "31b509ae-eef5-43ef-91c2-43d979771f9f"
+  },
+  {
+    "baseType": 3,
+    "name": "subject",
+    "defaultValue": "",
+    "description": "",
+    "helpText": "",
+    "isSystem": false,
+    "minLength": 0,
+    "maxLength": 2000,
+    "validationRegex": "",
+    "isValidate": false,
+    "uuid": "6a48554e-abc8-4dc4-853f-22200a1f107e"
+  }
+]

@@ -1,0 +1,129 @@
+{
+  "name": "Webhook",
+  "description": "Primary webhook form",
+  "isActive": false,
+  "isREST": true,
+  "isSendREST": false,
+  "isMobileEnabled": false,
+  "isEmailEnabled": false,
+  "order": 0,
+  "enableFillCount": false,
+  "generalFillCount": 0,
+  "uuid": "8e487f3e-a6d4-4217-aa92-90fbe0dc607e",
+  "layoutSections": [
+    {
+      "sectionType": 2,
+      "isVisible": true,
+      "isCollapsed": false,
+      "order": 0,
+      "panelSectionUuid": "81f22b24-d036-4949-8b77-8311066f7cac",
+      "sectionItems": []
+    },
+    {
+      "sectionType": 1,
+      "isVisible": true,
+      "isCollapsed": false,
+      "order": 1,
+      "panelSectionUuid": "5bdc3f86-9c5d-4847-aeee-2c9655e238cf",
+      "sectionItems": [
+        {
+          "id": "9b85f4c4-82ca-4039-8a22-fee22a83b078",
+          "order": 0,
+          "textIsMultiLine": true,
+          "isRequired": false,
+          "isVisible": true,
+          "isIncludeInCallbacks": false,
+          "panelSectionItemUuid": "0174625f-842b-4679-b643-cf9e3a4fd850",
+          "propertyName": "subject"
+        },
+        {
+          "id": "7aee2179-3160-445c-b060-4ac029b0a540",
+          "order": 1,
+          "textIsMultiLine": true,
+          "isRequired": false,
+          "isVisible": true,
+          "isIncludeInCallbacks": false,
+          "panelSectionItemUuid": "c64ebf22-881e-4456-9316-5334cfcc41b3",
+          "propertyName": "message"
+        }
+      ]
+    }
+  ],
+  "messages": {
+    "emailTemplates": [
+      {
+        "emailSubject": "${9b85f4c4-82ca-4039-8a22-fee22a83b078}\n",
+        "email": "<table style=\"width: 100%;  font-family: gotham, verdana, sans-serif; font-size: 16px; text-align: center; color: #444444; background-color: #f6f6f6; border: 0; border-collapse: collapse; padding: 0; margin: 0;\" class=\"\" id=\"table-2\">\n    <tbody>\n        <tr>\n            <td style=\"text-align: center; border: 0; padding: 21px 0 0;\" tabindex=\"0\">\n                <div>\n                    <img alt=\"xMatters\" src=\"https://na1.xmatters.com/static/images/logo.png\" height=\"35px\">\n                </div>\n            </td>\n        </tr>\n        <tr>\n            <td style=\"text-align: center; border: 0; padding: 18px 0 0;\" tabindex=\"0\">\n                <div>${9b85f4c4-82ca-4039-8a22-fee22a83b078}<br></div>\n            </td>\n        </tr>\n        <tr>\n            <td style=\"padding: 7px 0px 0px; margin: 0; border: 0;\" tabindex=\"0\">\n                <div style=\"width:100%; text-align: center;\">\n                    <div style=\"display: inline-block; max-width: 800px; width: 100%;\">\n                        <table style=\"width: 100%; font-size: 14px; text-align: left; color: #444444; background-color: #fcfcfc; padding: 0; margin: 0; border: 0; border-collapse: collapse\" class=\"\" id=\"table-3\">\n                            <tbody>\n                                <tr style=\"border: solid 1px #e4e4e4; \">\n                                    <td style=\"padding: 5px 10px;\" tabindex=\"0\">\n                                        <div>${7aee2179-3160-445c-b060-4ac029b0a540}</div>\n                                    </td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n            </td>\n        </tr>\n        <tr>\n            <td style=\"text-align: center; border: 0; padding: 4px 0px 21px;\" tabindex=\"0\">\n            </td>\n        </tr>\n    </tbody>\n</table>",
+        "languageCode": "en"
+      }
+    ],
+    "smsTemplates": [
+      {
+        "sms": "${9b85f4c4-82ca-4039-8a22-fee22a83b078}",
+        "languageCode": "en"
+      }
+    ],
+    "internationalVoiceScriptSteps": [
+      {
+        "languageCode": "en",
+        "voiceScriptSteps": [
+          {
+            "playType": "PHRASE",
+            "voiceScriptStepType": 2,
+            "propertyName": "message"
+          }
+        ]
+      }
+    ]
+  },
+  "responses": [
+    {
+      "id": "5f0a47d8-909c-487a-8f07-5507b1fb2520",
+      "textResponse": "Accept",
+      "description": "Accept",
+      "voicePrompt": "Accept",
+      "digit": 1,
+      "contribution": "POSITIVE",
+      "action": "END",
+      "isJoinConference": false,
+      "isAllowComments": true,
+      "textResponseLanguageCode": "en",
+      "descriptionLanguageCode": "en",
+      "voicePromptLanguageCode": "en",
+      "recordingPhrase": "",
+      "order": 0,
+      "translations": [
+        {
+          "languageCode": "en",
+          "textResponse": "Accept",
+          "description": "Accept",
+          "voicePrompt": "Accept"
+        }
+      ]
+    },
+    {
+      "id": "cbdd06f4-581d-4761-9b21-4683e53b68b3",
+      "textResponse": "Escalate",
+      "description": "Escalate",
+      "voicePrompt": "Escalate",
+      "digit": 2,
+      "contribution": "NEGATIVE",
+      "action": "ESCALATE",
+      "isJoinConference": false,
+      "isAllowComments": true,
+      "textResponseLanguageCode": "en",
+      "descriptionLanguageCode": "en",
+      "voicePromptLanguageCode": "en",
+      "recordingPhrase": "",
+      "order": 1,
+      "translations": [
+        {
+          "languageCode": "en",
+          "textResponse": "Escalate",
+          "description": "Escalate",
+          "voicePrompt": "Escalate"
+        }
+      ]
+    }
+  ]
+}
